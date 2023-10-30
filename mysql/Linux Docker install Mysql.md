@@ -10,7 +10,7 @@ docker pull mysql
 
 
 
-##### 2.配置
+##### 2.configuration
 
 ```shell
 ### docker images
