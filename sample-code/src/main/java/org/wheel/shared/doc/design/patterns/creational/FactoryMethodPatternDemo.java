@@ -4,7 +4,7 @@ package org.wheel.shared.doc.design.patterns.creational;
  * -shared-documents
  *
  * @Author: aGeng
- * @Description: 工厂方法模式
+ * @Description: 工厂方法模式Demo
  * @Target:
  * @Date Created in 2023-10-31-10:58
  * @Modified By:
