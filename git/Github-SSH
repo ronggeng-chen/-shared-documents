@@ -1,0 +1,74 @@
+#### GitHub SSH
+
+### 0. Preparation
+
+
+```shell
+## Check if there is an SSH key locally; if it exists, skip the first step
+cd ~/.ssh
+
+```
+
+##### 1.Generate SSH Private Key
+
+```shell
+## Command to generate a private key
+$ ssh-keygen -t ed25519 -C "XXXXX@gmail.com"
+
+> Generating public/private ed25519 key pair.
+## Optional: You can enter a name; the default is id_ed25519 (based on the key type).
+> Enter file in which to save the key (C:\Users\17578/.ssh/id_ed25519):
+
+## Enter passphrase
+> Enter passphrase (empty for no passphrase):
+
+## Re-enter passphrase
+> Enter the same passphrase again:
+
+## Parameter meanings:
+## -t: Specify the key type, default is RSA, and can be omitted.
+##      RSA (default): RSA key pair, usually specified with -t rsa.
+##      DSA: DSA key pair, specified with -t dsa.
+##      ECDSA: ECDSA (Elliptic Curve Digital Signature Algorithm) key pair, specified with -t ecdsa.
+##      Ed25519: Ed25519 key pair, specified with -t ed25519. This is a modern and highly secure public key encryption algorithm.
+## -C: Set a comment, such as an email (will be placed in the public key).
+## -f: Specify the key file storage filename.
+
+```
+
+##### 2.View Private Key
+
+```shell
+cd ~/.ssh
+
+## Open the *.pub file with an editing tool
+## For example, open id_ed25519.pub with an editing tool
+## Copy the entire content
+```
+
+##### 3.github配置密钥
+ 
+* Log in to github.com, click your profile picture, and select "Settings."
+* Click on "SSH and GPG keys."
+* Click "New SSH key" in the upper right corner. In the opened page, you can set a title as you like, but in the "Key" text box, paste the public key content you just copied.
+* Click "Add SSH key" to save.
+
+##### 4.Usage in IntelliJ IDEA
+
+###### 4.1.If You've Already Cloned a Project
+* Open your IntelliJ IDEA, click "File" in the upper right corner, then "Settings."
+* Choose "Tools" > "SSH Configurations."
+```shell
+## "Name": You can enter any name you like.
+## "Host": If you are connecting to GitHub, fill in github.com.
+## "Port": Keep the default 22.
+## "User name": If you are connecting to GitHub, fill in git.
+## "Authentication type": Choose "Key pair (OpenSSH or PuTTY)."
+## "Private key file": Click the "..." button, then browse to your private key file (the key file generated in Git Bash).
+```
+* Select "Git" in the top menu > "Manage Remotes," and change the URL in "origin" to the GitHub SSH project address.
+
+
+
+
+
