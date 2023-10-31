@@ -32,7 +32,7 @@ public class FactoryMethodPatternDemo {
 
     class DataSetFileParser implements IDataSetParser {
         public String toSql() {
-            // parser file ....
+            // parser file .....
             return null;
         }
 
