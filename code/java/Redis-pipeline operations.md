@@ -20,7 +20,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 
 /**
- * hbi
+ * 
  * redist拓展操作工具类
  *
  * @Author: aGeng

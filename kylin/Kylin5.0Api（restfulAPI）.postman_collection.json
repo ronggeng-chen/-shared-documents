@@ -1,0 +1,4991 @@
+{
+	"info": {
+		"_postman_id": "f92fe21b-0f5a-4baa-a9e7-28259af8c455",
+		"name": "Kylin5.0Api（restfulAPI）",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8957790",
+		"_collection_link": "https://eureka-integration.postman.co/workspace/common%25EF%25BC%2588%25E5%2585%25AC%25E5%2585%25B1%25EF%25BC%2589~3527258c-80eb-484d-ab38-01bcf52cdec7/collection/8957790-f92fe21b-0f5a-4baa-a9e7-28259af8c455?action=share&source=collection_link&creator=8957790"
+	},
+	"item": [
+		{
+			"name": "访问和身份验证API",
+			"item": [
+				{
+					"name": "访问和身份验证（Authentication）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic {{kylin_authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{kylin_url}}/user/authentication",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"user",
+								"authentication"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "项目设置API（Project Setting API）",
+			"item": [
+				{
+					"name": "创建项目（Create a Project）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"ceshi\",\r\n  \"description\": \"测试\",\r\n  \"maintain_model_type\": \"MANUAL_MAINTAIN\"\r\n}"
+						},
+						"url": {
+							"raw": "{{kylin_url}}/projects",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除项目（Delete a Project）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{kylin_url}}/projects/ceshi",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"projects",
+								"ceshi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "设置项目（Pushdown Setting）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"push_down_enabled\": false\r\n}   "
+						},
+						"url": {
+							"raw": "{{kylin_url}}/projects/ceshi/push_down_config",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"projects",
+								"ceshi",
+								"push_down_config"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "设置配置（Pushdown Configure Setting）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"project\": \"project_name\",\r\n    \"runner_class_name\":\"org.apache.kylin.query.pushdown.PushDownRunnerSparkImpl\",\r\n    \"converter_class_names\":\"org.apache.kylin.query.security.HackSelectStarWithColumnACL,org.apache.kylin.query.util.SparkSQLFunctionConverter\"\r\n}"
+						},
+						"url": {
+							"raw": "{{kylin_url}}/projects/ceshi/push_down_project_config",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"projects",
+								"ceshi",
+								"push_down_project_config"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Segment 设置（Segment Settings）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"auto_merge_time_ranges\":[\r\n            \"WEEK\",\r\n            \"MONTH\",\r\n            \"QUARTER\",\r\n            \"DAY\",\r\n            \"YEAR\"\r\n        ],\r\n        \"auto_merge_enabled\":true,\r\n        \"volatile_range\":{\r\n            \"volatile_range_number\":0,\r\n            \"volatile_range_type\":\"DAY\"\r\n        },\r\n        \"retention_range\":{\r\n            \"retention_range_number\":2,\r\n            \"retention_range_enabled\":false\r\n        }\r\n    }"
+						},
+						"url": {
+							"raw": "{{kylin_url}}/projects/ceshi/segment_config",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"projects",
+								"ceshi",
+								"segment_config"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "默认数据库（Default Database）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"default_database\":\"EDW\"\r\n}"
+						},
+						"url": {
+							"raw": "{{kylin_url}}/projects/ceshi/default_database",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"projects",
+								"ceshi",
+								"default_database"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "作业通知（Job Notification）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data_load_empty_notification_enabled\":true,\r\n    \"job_error_notification_enabled\":false,\r\n    \"job_notification_emails\":[\r\n        \"nnnn@kyligence.io\",\"tttt@kyligence.io\"\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "{{kylin_url}}/projects/ceshi/job_notification_config",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"projects",
+								"ceshi",
+								"job_notification_config"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "应用程序队列（YARN Application Queue）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"queue_name\":\"yarnqueue\"\r\n}"
+						},
+						"url": {
+							"raw": "{{kylin_url}}/projects/ceshi/yarn_queue",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"projects",
+								"ceshi",
+								"yarn_queue"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "项目重置设置（Project Reset Setting）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"reset_item\":\"job_notification_config\"\r\n}"
+						},
+						"url": {
+							"raw": "{{kylin_url}}/projects/ceshi/project_config",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"projects",
+								"ceshi",
+								"project_config"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "模型API（Model API）",
+			"item": [
+				{
+					"name": "模型管理API（Model Management API）",
+					"item": [
+						{
+							"name": "创建模型（Create Model）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"project\": \"ceshi\",\r\n    \"fact_table\": \"SSB.P_LINEORDER\",\r\n    \"alias\": \"test_model_01\",\r\n    \"management_type\": \"MODEL_BASED\",\r\n    \"simplified_measures\": [\r\n        {\r\n            \"name\": \"COUNT_ALL\",\r\n            \"expression\": \"COUNT\",\r\n            \"parameter_value\": [\r\n                {\r\n                    \"type\": \"constant\",\r\n                    \"value\": 1\r\n                }\r\n            ],\r\n            \"return_type\": \"\"\r\n        }\r\n    ],\r\n    \"simplified_dimensions\": [\r\n        {\r\n            \"column\": \"P_LINEORDER.LO_ORDERKEY\",\r\n            \"name\": \"LO_ORDERKEY\",\r\n            \"status\": \"DIMENSION\"\r\n        },\r\n        {\r\n            \"column\": \"P_LINEORDER.LO_CUSTKEY\",\r\n            \"name\": \"LO_CUSTKEY\",\r\n            \"status\": \"DIMENSION\"\r\n        },\r\n        {\r\n            \"column\": \"P_LINEORDER.LO_ORDERDATE\",\r\n            \"name\": \"LO_ORDERDATE\",\r\n            \"status\": \"DIMENSION\"\r\n        },\r\n        {\r\n            \"column\": \"P_LINEORDER.LO_ORDERPRIOTITY\",\r\n            \"name\": \"LO_ORDERPRIOTITY\",\r\n            \"status\": \"DIMENSION\"\r\n        },\r\n        {\r\n            \"column\": \"P_LINEORDER.V_REVENUE\",\r\n            \"name\": \"V_REVENUE\",\r\n            \"status\": \"DIMENSION\"\r\n        },\r\n        {\r\n            \"column\": \"DATES.D_YEAR\",\r\n            \"name\": \"D_YEAR\",\r\n            \"status\": \"DIMENSION\"\r\n        },\r\n        {\r\n            \"column\": \"CUSTOMER.C_NAME\",\r\n            \"name\": \"C_NAME\",\r\n            \"status\": \"DIMENSION\"\r\n        },\r\n        {\r\n            \"column\": \"CUSTOMER.C_PHONE\",\r\n            \"name\": \"C_PHONE\",\r\n            \"status\": \"DIMENSION\"\r\n        }\r\n    ],\r\n    \"join_tables\": [\r\n        {\r\n            \"table\": \"SSB.DATES\",\r\n            \"join\": {\r\n                \"type\": \"LEFT\",\r\n                \"foreign_key\": [\r\n                    \"P_LINEORDER.LO_ORDERDATE\"\r\n                ],\r\n                \"primary_key\": [\r\n                    \"DATES.D_DATE\"\r\n                ]\r\n            },\r\n            \"alias\": \"DATES\",\r\n            \"flattenable\": \"flatten\",\r\n            \"join_relation_type\": \"MANY_TO_ONE\"\r\n        },\r\n        {\r\n            \"table\": \"SSB.CUSTOMER\",\r\n            \"join\": {\r\n                \"type\": \"LEFT\",\r\n                \"foreign_key\": [\r\n                    \"P_LINEORDER.LO_CUSTKEY\"\r\n                ],\r\n                \"primary_key\": [\r\n                    \"CUSTOMER.C_CUSTKEY\"\r\n                ]\r\n            },\r\n            \"alias\": \"CUSTOMER\",\r\n            \"flattenable\": \"flatten\",\r\n            \"join_relation_type\": \"MANY_TO_ONE\"\r\n        }\r\n    ],\r\n    \"with_base_index\": true\r\n  }"
+								},
+								"url": {
+									"raw": "{{kylin_url}}/models",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"models"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取模型列表（Get Model List）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{kylin_url}}/models?project=ceshi&page_offset=&page_size=&status=&model_name=&exact=",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"models"
+									],
+									"query": [
+										{
+											"key": "project",
+											"value": "ceshi"
+										},
+										{
+											"key": "page_offset",
+											"value": ""
+										},
+										{
+											"key": "page_size",
+											"value": ""
+										},
+										{
+											"key": "status",
+											"value": ""
+										},
+										{
+											"key": "model_name",
+											"value": ""
+										},
+										{
+											"key": "exact",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取模型详情（Get Model Description）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{kylin_url}}/models/ceshi/ceshi1/model_desc",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"models",
+										"ceshi",
+										"ceshi1",
+										"model_desc"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "定义分区列（Define Partition Column）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"project\": \"ceshi\",\r\n    \"partition_desc\": {\r\n        \"partition_date_column\": \"KYLIN_SALES.PART_DT\",\r\n        \"partition_date_format\": \"yyyy-MM-dd\"\r\n    },\r\n    \"multi_partition_desc\": {\r\n        \"columns\": [\r\n            \"KYLIN_SALES.LSTG_SITE_ID\"\r\n        ]\r\n    }\r\n}"
+								},
+								"url": {
+									"raw": "{{kylin_url}}/models/ceshi1/partition",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"models",
+										"ceshi1",
+										"partition"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取索引列表（Get index list）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"project\": \"ceshi\",\r\n    \"partition_desc\": {\r\n        \"partition_date_column\": \"KYLIN_SALES.PART_DT\",\r\n        \"partition_date_format\": \"yyyy-MM-dd\"\r\n    },\r\n    \"multi_partition_desc\": {\r\n        \"columns\": [\r\n            \"KYLIN_SALES.LSTG_SITE_ID\"\r\n        ]\r\n    }\r\n}"
+								},
+								"url": {
+									"raw": "{{kylin_url}}/models/ceshi1/indexes?project=ceshi&model_name=cheshi1&status=&page_offset=&page_size=&sources=&sort_by=&reverse=&batch_index_ids=",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"models",
+										"ceshi1",
+										"indexes"
+									],
+									"query": [
+										{
+											"key": "project",
+											"value": "ceshi"
+										},
+										{
+											"key": "model_name",
+											"value": "cheshi1"
+										},
+										{
+											"key": "status",
+											"value": ""
+										},
+										{
+											"key": "page_offset",
+											"value": ""
+										},
+										{
+											"key": "page_size",
+											"value": ""
+										},
+										{
+											"key": "sources",
+											"value": ""
+										},
+										{
+											"key": "sort_by",
+											"value": ""
+										},
+										{
+											"key": "reverse",
+											"value": ""
+										},
+										{
+											"key": "batch_index_ids",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除模型（Delete Model）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "    "
+								},
+								"url": {
+									"raw": "{{kylin_url}}/models/ceshi1?project=ceshi",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"models",
+										"ceshi1"
+									],
+									"query": [
+										{
+											"key": "project",
+											"value": "ceshi"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "导出TDS文件（Export TDS File） (BETA)",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{kylin_url}}/models/models/ceshi1/export?model_name= &project=&export_as= &element=&server_host=&server_port=",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"models",
+										"models",
+										"ceshi1",
+										"export"
+									],
+									"query": [
+										{
+											"key": "model_name",
+											"value": " "
+										},
+										{
+											"key": "project",
+											"value": ""
+										},
+										{
+											"key": "export_as",
+											"value": " "
+										},
+										{
+											"key": "element",
+											"value": ""
+										},
+										{
+											"key": "server_host",
+											"value": ""
+										},
+										{
+											"key": "server_port",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "模型重命名（Model Rename）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"project\":\"ceshi\", \"new_model_name\":\"ceshi1\"}"
+								},
+								"url": {
+									"raw": "{{kylin_url}}/models/ceshi2/name",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"models",
+										"ceshi2",
+										"name"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "模型上线/离线设置（Model Online/Offline）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"project\": \"ceshi\", \"status\": \"ONLINE\"}"
+								},
+								"url": {
+									"raw": "{{kylin_url}}/models/ceshi1/status",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"models",
+										"ceshi1",
+										"status"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "模型Build API（Model Build API）",
+					"item": [
+						{
+							"name": "加载分区（Load Segment）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"project\":\"doc_expert\", \"start\": \"694195200000\", \"end\": \"883584000000\",\"build_all_indexes\":true,\"sub_partition_values\":[[\"1\"],[\"2\"]],\"build_all_sub_partitions\":false}"
+								},
+								"url": {
+									"raw": "{{kylin_url}}/models/ceshi1/segments",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"models",
+										"ceshi1",
+										"segments"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "模型导入和导出API（Model Import And Export API）",
+					"item": [
+						{
+							"name": "获取批导出模型（Get Batch Exportable Models）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{kylin_url}}/metastore/previews/models?project=ceshi&model_names=ceshi1,ceshi2",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"metastore",
+										"previews",
+										"models"
+									],
+									"query": [
+										{
+											"key": "project",
+											"value": "ceshi"
+										},
+										{
+											"key": "model_names",
+											"value": "ceshi1,ceshi2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "模型元数据导出（Model Metadata Export）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"names\": [\r\n        \"ceshi1\"\r\n    ],\r\n    \"export_recommendations\": true,\r\n    \"export_over_props\": true,\r\n    \"export_multiple_partition_values\": true\r\n}"
+								},
+								"url": {
+									"raw": "{{kylin_url}}/metastore/backup/models?project=ceshi",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"metastore",
+										"backup",
+										"models"
+									],
+									"query": [
+										{
+											"key": "project",
+											"value": "ceshi"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "模型元数据导入验证（Model Metadata Import Validation）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file ",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "{{kylin_url}}/metastore/validation/models?project=ceshi",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"metastore",
+										"validation",
+										"models"
+									],
+									"query": [
+										{
+											"key": "project",
+											"value": "ceshi"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "模型元数据导入（Model Metadata Import）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file ",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "request",
+											"value": "{\n    \"models\":[\n        {\n            \"original_name\":\"ssb_model\",\n            \"target_name\":\"ssb_model\",\n            \"import_type\":\"OVERWRITE\"\n        }\n    ]\n}",
+											"contentType": "application/json",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{kylin_url}}/metastore/import/models?project=ceshi",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"metastore",
+										"import",
+										"models"
+									],
+									"query": [
+										{
+											"key": "project",
+											"value": "ceshi"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "多级分区模型API（Multi-level Partitioning Model API）",
+					"item": [
+						{
+							"name": "添加子分区值（Add Sub-Partition value）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"project\":\"ceshi\",\r\n    \"sub_partition_values\":[[\"5\"]]\r\n}"
+								},
+								"url": {
+									"raw": "{{kylin_url}}/models/ceshi1/segments/multi_partition/sub_partition_values",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"models",
+										"ceshi1",
+										"segments",
+										"multi_partition",
+										"sub_partition_values"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "生成子分区（Build Sub-Partition）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"project\": \"ceshi\",\r\n    \"segment_id\": \"983904fa-d573-4944-acb8-558c59598a48\",\r\n    \"sub_partition_values\": [\r\n        [\r\n            \"5\"\r\n        ]\r\n    ],\r\n    \"parallel_build_by_segment\": false,\r\n    \"build_all_sub_partitions\": false\r\n}"
+								},
+								"url": {
+									"raw": "{{kylin_url}}/models/ceshi1/segments/multi_partition",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"models",
+										"ceshi1",
+										"segments",
+										"multi_partition"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除子分区值对应的索引数据（Delete Sub-Partition value corresponding index data）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{kylin_url}}/models/segments/multi_partition?project= &model= &segment_id= &sub_partition_values=",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"models",
+										"segments",
+										"multi_partition"
+									],
+									"query": [
+										{
+											"key": "project",
+											"value": " "
+										},
+										{
+											"key": "model",
+											"value": " "
+										},
+										{
+											"key": "segment_id",
+											"value": " "
+										},
+										{
+											"key": "sub_partition_values",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "刷新与Sub Partition值对应的索引数据（Refresh the index data corresponding to the Sub-Partition value）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"project\":\"default\",\r\n    \"segment_id\":\"60615c5e-2ae1-4ee9-b88d-f00f1f101a8a\",\r\n    \"sub_partition_values\":[[\"1\"], [\"2\"]]\r\n}"
+								},
+								"url": {
+									"raw": "{{kylin_url}}/models/ceshi1/segments/multi_partition",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"models",
+										"ceshi1",
+										"segments",
+										"multi_partition"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取分区详细信息（Get Segment details）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{kylin_url}}/models/ceshi1/segments/multi_partition?project=&segment_id=&page_offset= &page_size= &model_name=",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"models",
+										"ceshi1",
+										"segments",
+										"multi_partition"
+									],
+									"query": [
+										{
+											"key": "project",
+											"value": ""
+										},
+										{
+											"key": "segment_id",
+											"value": ""
+										},
+										{
+											"key": "page_offset",
+											"value": " "
+										},
+										{
+											"key": "page_size",
+											"value": " "
+										},
+										{
+											"key": "model_name",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "查询映射设置（Query mapping settings）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"project\": \"ceshi\",\r\n    \"alias_columns\": [\"KYLIN_SALES.LEAF_CATEG_ID\"],\r\n    \"multi_partition_columns\": [\"KYLIN_SALES.LSTG_SITE_ID\"],\r\n    \"value_mapping\": [\r\n      {\r\n        \"origin\": [\"Beijing\"], \r\n        \"target\":[\"North\"]\r\n      },\r\n      {\r\n        \"origin\":[\"Shanghai\"],\r\n        \"target\":[\"South\"]\r\n      }\r\n    ]\r\n}"
+								},
+								"url": {
+									"raw": "{{kylin_url}}/models/ceshi1/multi_partition/mapping",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"models",
+										"ceshi1",
+										"multi_partition",
+										"mapping"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "分区管理API（Segment Management API）",
+			"item": [
+				{
+					"name": "获取分区列表（Get Segment List）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{kylin_url}}/models/ceshi1/segments?model_name=&project=&page_offset=&page_size=&start=&end=",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"models",
+								"ceshi1",
+								"segments"
+							],
+							"query": [
+								{
+									"key": "model_name",
+									"value": ""
+								},
+								{
+									"key": "project",
+									"value": ""
+								},
+								{
+									"key": "page_offset",
+									"value": ""
+								},
+								{
+									"key": "page_size",
+									"value": ""
+								},
+								{
+									"key": "start",
+									"value": ""
+								},
+								{
+									"key": "end",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "刷新/合并段（Refresh/Merge Segments）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"project\":\"ceshi\", \"ids\":[\"8f3b4040-aa75-4e74-9730-6bf1cae61745\"], \"type\":\"REFRESH\"}"
+						},
+						"url": {
+							"raw": "{{kylin_url}}/models/ceshi1/segments",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"models",
+								"ceshi1",
+								"segments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除分段（Delete Segments）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"project\":\"ceshi\", \"ids\":[\"8f3b4040-aa75-4e74-9730-6bf1cae61745\"], \"type\":\"REFRESH\"}"
+						},
+						"url": {
+							"raw": "{{kylin_url}}/models/ceshi1/segments?model_name=&project=&purge=&ids=&names=&force=",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"models",
+								"ceshi1",
+								"segments"
+							],
+							"query": [
+								{
+									"key": "model_name",
+									"value": ""
+								},
+								{
+									"key": "project",
+									"value": ""
+								},
+								{
+									"key": "purge",
+									"value": ""
+								},
+								{
+									"key": "ids",
+									"value": ""
+								},
+								{
+									"key": "names",
+									"value": ""
+								},
+								{
+									"key": "force",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "检查分区（Check Segment）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"project\":\"ssb\", \r\n    \"start\":\"775785600000\",\r\n    \"end\":\"775789200000\"\r\n}"
+						},
+						"url": {
+							"raw": "{{kylin_url}}/models/ceshi1/segments/check",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"models",
+								"ceshi1",
+								"segments",
+								"check"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "补充所有分区的索引（Replenish Indexes of All Segments）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"project\":\"ssb\"}"
+						},
+						"url": {
+							"raw": "{{kylin_url}}/models/ceshi1/indexes",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"models",
+								"ceshi1",
+								"indexes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "在分段中补充索引（Replenish Indexes among Segments）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{kylin_url}}/models/ceshi1/segments/completion?project=&parallel=&ids=&names=&yarn_queue=&tag=",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"models",
+								"ceshi1",
+								"segments",
+								"completion"
+							],
+							"query": [
+								{
+									"key": "project",
+									"value": ""
+								},
+								{
+									"key": "parallel",
+									"value": ""
+								},
+								{
+									"key": "ids",
+									"value": ""
+								},
+								{
+									"key": "names",
+									"value": ""
+								},
+								{
+									"key": "yarn_queue",
+									"value": ""
+								},
+								{
+									"key": "tag",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "快照管理API（Snapshot Management API）",
+			"item": [
+				{
+					"name": "快照管理（Snapshot Management）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"snapshot_manual_management_enabled\": true }"
+						},
+						"url": {
+							"raw": "{{kylin_url}}/projects/ceshi/snapshot_config",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"projects",
+								"ceshi",
+								"snapshot_config"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "创建快照（Create Snapshots）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"project\":\"gc_test\",  \"tables\": [\"SSB.P_LINEORDER\",  \"DEFAULT.TEST_KYLIN_FACT\"], \"options\":{\"DEFAULT.TEST_KYLIN_FACT\":{\"partition_col\":\"CAL_DT\",\"incremental_build\":\"true\",\"partitions_to_build\":[\"2012-03-01\",\"2012-03-04\"]}}}"
+						},
+						"url": {
+							"raw": "{{kylin_url}}/snapshots",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"snapshots"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "设置分区列（Set Partition Column）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"project\":\"gc_test\",\"table_partition_col\":{\"DEFAULT.TEST_KYLIN_FACT\":\"CAL_DT\"}}"
+						},
+						"url": {
+							"raw": "{{kylin_url}}/snapshots/config",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"snapshots",
+								"config"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "刷新快照（Refresh Snapshots）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"project\":\"gc_test\",  \"tables\": [\"SSB.P_LINEORDER\",  \"DEFAULT.TEST_KYLIN_FACT\"],\"options\":{\"DEFAULT.TEST_KYLIN_FACT\":{\"partition_col\":\"CAL_DT\",\"incremental_build\":true,\"partitions_to_build\":[\"2012-03-01\",\"2012-03-04\"]}}}"
+						},
+						"url": {
+							"raw": "{{kylin_url}}/snapshots",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"snapshots"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除快照（Delete Snapshots）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{kylin_url}}/snapshots?project=ceshi&tables=SSB.P_LINEORDER%2CDEFAULT.TEST_KYLIN_FACT'",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"snapshots"
+							],
+							"query": [
+								{
+									"key": "project",
+									"value": "ceshi"
+								},
+								{
+									"key": "tables",
+									"value": "SSB.P_LINEORDER%2CDEFAULT.TEST_KYLIN_FACT'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取快照列表（Get Snapshot List）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{kylin_url}}/snapshots?project=&table=&page_offset=&page_size=",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"snapshots"
+							],
+							"query": [
+								{
+									"key": "project",
+									"value": ""
+								},
+								{
+									"key": "table",
+									"value": ""
+								},
+								{
+									"key": "page_offset",
+									"value": ""
+								},
+								{
+									"key": "page_size",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "查询API（Query API）",
+			"item": [
+				{
+					"name": "查询API（Query API）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"sql\":\"select count(*) from SSB.P_LINEORDER\", \"project\":\"ssb\", \"partialMatchIndex\":\"true\"}"
+						},
+						"url": {
+							"raw": "{{kylin_url}}/query",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"query"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "刷新缓存数据（Refresh cached data）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"tables\":[\"SSB.LINEORDER\",\"SSB.SUPPLIER\"]}"
+						},
+						"url": {
+							"raw": "{{kylin_url}}/tables/catalog_cache",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"tables",
+								"catalog_cache"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取查询历史记录（Get query histories）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{kylin_url}}/query/query_histories?project=kylin_demo&page_offset=5&page_size=1&start_time_from=1656864000000&start_time_to=1656950400000'",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"query",
+								"query_histories"
+							],
+							"query": [
+								{
+									"key": "project",
+									"value": "kylin_demo"
+								},
+								{
+									"key": "page_offset",
+									"value": "5"
+								},
+								{
+									"key": "page_size",
+									"value": "1"
+								},
+								{
+									"key": "start_time_from",
+									"value": "1656864000000"
+								},
+								{
+									"key": "start_time_to",
+									"value": "1656950400000'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "下载查询历史记录（Download query history）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{kylin_url}}/query/download_query_histories?timezone_offset_hour=8&realization=&query_status=&submitter=&project=default&start_time_from=&start_time_to=&latency_from=&latency_to=&sql='",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"query",
+								"download_query_histories"
+							],
+							"query": [
+								{
+									"key": "timezone_offset_hour",
+									"value": "8"
+								},
+								{
+									"key": "realization",
+									"value": ""
+								},
+								{
+									"key": "query_status",
+									"value": ""
+								},
+								{
+									"key": "submitter",
+									"value": ""
+								},
+								{
+									"key": "project",
+									"value": "default"
+								},
+								{
+									"key": "start_time_from",
+									"value": ""
+								},
+								{
+									"key": "start_time_to",
+									"value": ""
+								},
+								{
+									"key": "latency_from",
+									"value": ""
+								},
+								{
+									"key": "latency_to",
+									"value": ""
+								},
+								{
+									"key": "sql",
+									"value": "'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "下载查询历史记录SQL（Download query history SQL）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{kylin_url}}/query/download_query_histories?timezone_offset_hour=8&realization=&query_status=&submitter=&project=default&start_time_from=&start_time_to=&latency_from=&latency_to=&sql='",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"query",
+								"download_query_histories"
+							],
+							"query": [
+								{
+									"key": "timezone_offset_hour",
+									"value": "8"
+								},
+								{
+									"key": "realization",
+									"value": ""
+								},
+								{
+									"key": "query_status",
+									"value": ""
+								},
+								{
+									"key": "submitter",
+									"value": ""
+								},
+								{
+									"key": "project",
+									"value": "default"
+								},
+								{
+									"key": "start_time_from",
+									"value": ""
+								},
+								{
+									"key": "start_time_to",
+									"value": ""
+								},
+								{
+									"key": "latency_from",
+									"value": ""
+								},
+								{
+									"key": "latency_to",
+									"value": ""
+								},
+								{
+									"key": "sql",
+									"value": "'"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "数据源API（Data Source API）",
+			"item": [
+				{
+					"name": "加载HIve表（Load Hive Table）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"project\":\"ssb\",\"tables\":[\"SSB.LINEORDER\"],\"need_sampling\":false}"
+						},
+						"url": {
+							"raw": "{{kylin_url}}/tables",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"tables"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "准备重新加载配置单元表（Prepare Reload Hive Table）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{kylin_url}}/tables/pre_reload?project=ssb&table=SSB.LINEORDER'",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"tables",
+								"pre_reload"
+							],
+							"query": [
+								{
+									"key": "project",
+									"value": "ssb"
+								},
+								{
+									"key": "table",
+									"value": "SSB.LINEORDER'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "重新加载Hive表（Reload Hive Table）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"project\":\"ssb\",\"table\":\"SSB.LINEORDER\",\"need_sampling\":false,\"need_building\":false}"
+						},
+						"url": {
+							"raw": "{{kylin_url}}/tables/reload",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"tables",
+								"reload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "准备卸载HIve表（Prepare Unload Table）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{kylin_url}}/tables/{database}/{table}/prepare_unload?project=&table &database",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"tables",
+								"{database}",
+								"{table}",
+								"prepare_unload"
+							],
+							"query": [
+								{
+									"key": "project",
+									"value": ""
+								},
+								{
+									"key": "table ",
+									"value": null
+								},
+								{
+									"key": "database",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "卸载HIve表（Unload Table）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{kylin_url}}/tables/{database}/{table}?project=ssb&database &table &cascade ",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"tables",
+								"{database}",
+								"{table}"
+							],
+							"query": [
+								{
+									"key": "project",
+									"value": "ssb"
+								},
+								{
+									"key": "database ",
+									"value": null
+								},
+								{
+									"key": "table ",
+									"value": null
+								},
+								{
+									"key": "cascade ",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "表采样（Table Sampling）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"project\":\"ssb\",\"qualified_table_name\":\"SSB.LINEORDER\",\"rows\":20000,\"priority\":0}"
+						},
+						"url": {
+							"raw": "{{kylin_url}}/tables/sampling_jobs",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"tables",
+								"sampling_jobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取列的分区格式（Get Partition Format of A Column）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{kylin_url}}/tables/column_format?project=test&table=DEFAULT.KYLIN_SALES&column_name=PART_DT",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"tables",
+								"column_format"
+							],
+							"query": [
+								{
+									"key": "project",
+									"value": "test"
+								},
+								{
+									"key": "table",
+									"value": "DEFAULT.KYLIN_SALES"
+								},
+								{
+									"key": "column_name",
+									"value": "PART_DT"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取表格信息（Get Table Information）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{kylin_url}}/tables?project=test&database=SSB&table=KYLIN_SALES'&is_fuzzy&ext &page_offset &page_size ",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"tables"
+							],
+							"query": [
+								{
+									"key": "project",
+									"value": "test"
+								},
+								{
+									"key": "database",
+									"value": "SSB"
+								},
+								{
+									"key": "table",
+									"value": "KYLIN_SALES'"
+								},
+								{
+									"key": "is_fuzzy",
+									"value": null
+								},
+								{
+									"key": "ext ",
+									"value": null
+								},
+								{
+									"key": "page_offset ",
+									"value": null
+								},
+								{
+									"key": "page_size ",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "异步查询API（Async Query API）",
+			"item": [
+				{
+					"name": "提交异步查询（Submit Async Query）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"sql\":\"select * from KYLIN_SALES limit 100\", \"project\":\"learn_kylin\" }"
+						},
+						"url": {
+							"raw": "{{kylin_url}}/async_query",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"async_query"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "请求查询状态（Request Query Status）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{kylin_url}}/async_query/{query_id}/status?project=learn_kylin",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"async_query",
+								"{query_id}",
+								"status"
+							],
+							"query": [
+								{
+									"key": "project",
+									"value": "learn_kylin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "请求查询元数据信息（Request Query Metadata Info）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{kylin_url}}/async_query/{query_id}/metadata?project=learn_kylin",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"async_query",
+								"{query_id}",
+								"metadata"
+							],
+							"query": [
+								{
+									"key": "project",
+									"value": "learn_kylin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "请求查询结果文件状态（Request Query Result File Status）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{kylin_url}}/async_query/{query_id}/file_status?project=learn_kylin\n",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"async_query",
+								"{query_id}",
+								"file_status"
+							],
+							"query": [
+								{
+									"key": "project",
+									"value": "learn_kylin\n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "下载查询结果（Download Query Result）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{kylin_url}}/async_query/{query_id}/result_download?include_header=true&project=learn_kylin",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"async_query",
+								"{query_id}",
+								"result_download"
+							],
+							"query": [
+								{
+									"key": "include_header",
+									"value": "true"
+								},
+								{
+									"key": "project",
+									"value": "learn_kylin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "请求查询HDFS路径（Request Query HDFS Path）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{kylin_url}}/async_query/{query_id}/result_path?project=learn_kylin",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"async_query",
+								"{query_id}",
+								"result_path"
+							],
+							"query": [
+								{
+									"key": "project",
+									"value": "learn_kylin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除所有查询结果文件（Delete All Query Result Files）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{kylin_url}}/async_query/{query_id}/result_path?project=learn_kylin",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"async_query",
+								"{query_id}",
+								"result_path"
+							],
+							"query": [
+								{
+									"key": "project",
+									"value": "learn_kylin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据时间删除旧查询结果文件（Delete old query result files based on time）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{kylin_url}}/async_query?project={project}&older_than={time}",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"async_query"
+							],
+							"query": [
+								{
+									"key": "project",
+									"value": "{project}"
+								},
+								{
+									"key": "older_than",
+									"value": "{time}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据query_id删除查询结果文件（Delete query result files according to query_id）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{kylin_url}}/async_query/{query_id}?project=learn_kylin",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"async_query",
+								"{query_id}"
+							],
+							"query": [
+								{
+									"key": "project",
+									"value": "learn_kylin"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "任务API（Job API）",
+			"item": [
+				{
+					"name": "获取作业列表（Get Job List）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{kylin_url}}/jobs?time_filter=0&page_size=1&project&statuses&page_offset&sort_by&reverse&key",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"jobs"
+							],
+							"query": [
+								{
+									"key": "time_filter",
+									"value": "0"
+								},
+								{
+									"key": "page_size",
+									"value": "1"
+								},
+								{
+									"key": "project",
+									"value": null
+								},
+								{
+									"key": "statuses",
+									"value": null
+								},
+								{
+									"key": "page_offset",
+									"value": null
+								},
+								{
+									"key": "sort_by",
+									"value": null
+								},
+								{
+									"key": "reverse",
+									"value": null
+								},
+								{
+									"key": "key",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "操作作业（Operate Job）",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+									"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+									"pm.environment.set(\"authorization\",base64)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.apache.kylin-v4-public+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"action\" : \"PAUSE\",\r\n    \"job_ids\" : [\r\n    \"d7e4a098-10b6-4961-85b4-9eebfe29eb25\",\r\n    \"80f4d168-1074-4218-875c-4c70a4334029\"\r\n    ],\r\n    \"project\" : \"ssb\"\r\n}"
+						},
+						"url": {
+							"raw": "{{kylin_url}}/jobs/status",
+							"host": [
+								"{{kylin_url}}"
+							],
+							"path": [
+								"jobs",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ACL管理API（ACL Management API）",
+			"item": [
+				{
+					"name": "用户管理API（User Management API）",
+					"item": [
+						{
+							"name": "获取用户列表（Get User List）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{kylin_url}}/user?name&is_case_sensitive&page_offset&page_size ",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"user"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": null
+										},
+										{
+											"key": "is_case_sensitive",
+											"value": null
+										},
+										{
+											"key": "page_offset",
+											"value": null
+										},
+										{
+											"key": "page_size ",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "创建用户（Create User）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"username\": \"test\",\r\n\"password\": \"Password@123\",\r\n\"disabled\": \"false\",\r\n\"authorities\":[\"ALL_USERS\"]\r\n}"
+								},
+								"url": {
+									"raw": "{{kylin_url}}/user",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改用户所属的组（Modify the group where user belongs）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"username\": \"createuser\",\r\n\"authorities\":[\"ALL_USERS\"]\r\n}"
+								},
+								"url": {
+									"raw": "{{kylin_url}}/user",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改密码（Change Password）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"username\": \"test\",\r\n\"password\": \"Password@123\",\r\n\"new_password\": \"Password@1234\"\r\n}"
+								},
+								"url": {
+									"raw": "{{kylin_url}}/user/password",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"user",
+										"password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除用户（Delete User）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"testuser\"\r\n    }"
+								},
+								"url": {
+									"raw": "{{kylin_url}}/user/delete",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"user",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取用户或组的ACL（Get ACL of a User or Group）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"testuser\"\r\n    }"
+								},
+								"url": {
+									"raw": "{{kylin_url}}/access/acls?type=user&name=ADMIN&project",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"access",
+										"acls"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "user"
+										},
+										{
+											"key": "name",
+											"value": "ADMIN"
+										},
+										{
+											"key": "project",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "用户组管理API（User Group Management API）",
+					"item": [
+						{
+							"name": "获取用户组列表（Get User Group List）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{kylin_url}}/user_group/groups?group_name&is_case_sensitive &page_offset &page_size ",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"user_group",
+										"groups"
+									],
+									"query": [
+										{
+											"key": "group_name",
+											"value": null
+										},
+										{
+											"key": "is_case_sensitive ",
+											"value": null
+										},
+										{
+											"key": "page_offset ",
+											"value": null
+										},
+										{
+											"key": "page_size ",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取指定用户组的用户列表（Get User List of Specified User Group）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{kylin_url}}/user_group/group_members/{group_name}?username &page_offset &page_size",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"user_group",
+										"group_members",
+										"{group_name}"
+									],
+									"query": [
+										{
+											"key": "username ",
+											"value": null
+										},
+										{
+											"key": "page_offset ",
+											"value": null
+										},
+										{
+											"key": "page_size",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "添加用户组（Add User Group）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"group_name\": \"test_group\"\r\n    }"
+								},
+								"url": {
+									"raw": "{{kylin_url}}/user_group",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"user_group"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改用户组（Update User Group）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"group_name\": \"test\", \r\n\"users\":[\"ANALYST\",  \"MODELER\"]\r\n}"
+								},
+								"url": {
+									"raw": "{{kylin_url}}/user_group/users",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"user_group",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除用户（Delete User） Copy",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"group_name\": \"test_group\"\r\n    }"
+								},
+								"url": {
+									"raw": "{{kylin_url}}/user_group",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"user_group"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "项目ACL API（Project ACL API）",
+					"item": [
+						{
+							"name": "获取项目ACL（Get Project ACL）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{kylin_url}}/access/project?project=learn_kylin&name &page_offset &page_size ",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"access",
+										"project"
+									],
+									"query": [
+										{
+											"key": "project",
+											"value": "learn_kylin"
+										},
+										{
+											"key": "name ",
+											"value": null
+										},
+										{
+											"key": "page_offset ",
+											"value": null
+										},
+										{
+											"key": "page_size ",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "授予项目ACL（Grant Project ACL）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"project\": \"Kylin\",\r\n    \"type\": \"user\",\r\n    \"permission\": \"QUERY\",\r\n    \"names\":[\"test\"]\r\n    }"
+								},
+								"url": {
+									"raw": "{{kylin_url}}/access/project",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"access",
+										"project"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "更新项目ACL（覆盖）（Update Project ACL (overwrite)）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"project\": \"Kylin\",\r\n    \"type\": \"user\",\r\n    \"permission\": \"ADMIN\",\r\n    \"name\": \"test\"\r\n    }"
+								},
+								"url": {
+									"raw": "{{kylin_url}}/access/project",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"access",
+										"project"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "撤消项目ACL（Revoke Project ACL）",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var card = CryptoJS.enc.Utf8.parse(\"ADMIN:KYLIN\");\r",
+											"var base64 = CryptoJS.enc.Base64.stringify(card)\r",
+											"pm.environment.set(\"authorization\",base64)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.apache.kylin-v4-public+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{kylin_url}}/access/project?project=learn_kylin&type=user&name=test",
+									"host": [
+										"{{kylin_url}}"
+									],
+									"path": [
+										"access",
+										"project"
+									],
+									"query": [
+										{
+											"key": "project",
+											"value": "learn_kylin"
+										},
+										{
+											"key": "type",
+											"value": "user"
+										},
+										{
+											"key": "name",
+											"value": "test"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
