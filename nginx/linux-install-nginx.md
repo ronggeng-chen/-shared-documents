@@ -38,7 +38,7 @@ yum -y install gcc gcc-c++ make libtool zlib zlib-devel openssl openssl-devel pc
 cd /opt/plugin/package
 rz
 ## Optional: weget 
-```
+ ```
 ##### 4.Compile And Install
 
  ```shell
@@ -51,10 +51,10 @@ rz
 ## Optional: Detailed instructions
 ## reference documentation
 ## http://nginx.org/en/docs/configure.html
-
+## ./configure --user=nginx --group=nginx--prefix=/usr --with-http_stub_status_module --without-http-cache --with-http_ssl_module --with-http_gzip_static_module --with-ipv6
 ## install
 make install
-  ```
+ ```
 ##### 5.Common cmd
 
  ```shell
@@ -77,7 +77,7 @@ cd /usr/local/nginx
 ## nginx master to the nginx.pid in the directory /usr/local/nginx/logs or /var/run.
 ## For getting the list of all running nginx processes, the ps utility may be used, for example, in the following way:
 kill -s QUIT 1628
-  ```
+ ```
 
 ##### 4.conf配置推荐
 
