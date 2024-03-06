@@ -178,6 +178,30 @@
 地址：https://github.com/RedisInsight/RedisDesktopManager/releases/tag/0.9.3
 ```
 
+##### Putty
+
+```
+描述：ssh 轻量化
+版本：
+地址：
+```
+
+##### FileZilla
+
+```
+描述：ssh ftp
+版本：
+地址：
+```
+
+##### Tabby Terminal
+
+```
+描述：ssh 
+版本：
+地址：https://tabby.sh/
+```
+
 #### IDEA 插件
 
 ##### Catppuccin Icons
