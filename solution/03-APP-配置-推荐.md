@@ -61,7 +61,7 @@
 ```
 描述：输入法
 版本：
-地址：
+地址：https://shurufa.sogou.com/
 ```
 
 ##### UTools
@@ -71,6 +71,16 @@
 版本：
 地址：https://u.tools/
 ```
+
+##### ToDesk
+
+```
+描述：内网穿透远程工具
+版本：
+地址：https://www.todesk.com/
+```
+
+
 
 #### 开发软件
 
@@ -183,7 +193,7 @@
 ```
 描述：ssh 轻量化
 版本：
-地址：
+地址：https://putty.org/
 ```
 
 ##### FileZilla
@@ -191,7 +201,7 @@
 ```
 描述：ssh ftp
 版本：
-地址：
+地址：https://www.filezilla.cn/
 ```
 
 ##### Tabby Terminal
@@ -200,6 +210,32 @@
 描述：ssh 
 版本：
 地址：https://tabby.sh/
+```
+
+##### PDManer
+
+```
+描述：数据库建模工具 国产
+版本：
+地址：https://gitee.com/robergroup/pdmaner
+```
+
+##### Game平台
+
+##### Steam
+
+```
+描述：Steam游戏平台 V社
+版本：
+地址：https://store.steampowered.com/about/
+```
+
+##### 雷神网游加速器
+
+```
+描述：加速器
+版本：
+地址：https://www.leigod.com/
 ```
 
 #### IDEA 插件

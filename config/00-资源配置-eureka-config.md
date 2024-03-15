@@ -28,6 +28,21 @@ username: sa
 password: P@ssw0rd!
 ```
 
+##### 数据库资源(Hive)
+
+```shell
+## hive
+url: jdbc:hive2://192.192.192.223:10000
+username: hive
+password: eureka,123
+
+## trino
+url：jdbc:trino://192.192.192.223:443/hive/eureka_odr?SSL=true&SSLVerification=NONE
+username: hive
+password: eureka,123
+
+```
+
 ##### 数据库资源(dm)
 
 ```json
